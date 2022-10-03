@@ -1,5 +1,5 @@
 import { outputAst } from '@angular/compiler';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
 import { Course } from '../model/course';
 
 @Component({
@@ -15,8 +15,11 @@ export class CourseCardComponent implements OnInit {
   @Input()
   index: number;
 
+  @Input()
+  noImageTpl: TemplateRef<any>;
+
   @Output()
-   courseSelected = new EventEmitter<Course>();
+   coursesSelected = new EventEmitter<Course>();
 
 
   constructor() { }
@@ -24,12 +27,12 @@ export class CourseCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  coursSelected(){
+  courseSelected(){
     console.log("Course Card component cliked...");
-    this.courseSelected.emit(this.course);
+    this.coursesSelected.emit(this.course);
   }
 
-  isImageAvaliable() {
+  isImageAvailable() {
     return this.course && this.course.iconUrl;
   }
 

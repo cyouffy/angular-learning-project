@@ -18,7 +18,7 @@ export class AppComponent {
   @ViewChild('container')
   container: ElementRef;
 
-  OnCoursSelected(course: Course) {
+  OnCourseSelected(course: Course) {
     console.log(this.container);
   }
 
