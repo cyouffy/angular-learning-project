@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren
 import {COURSES} from '../db-data';
 import {Course} from './model/course';
 import {CourseCardComponent} from './course-card/course-card.component';
+import {HighlightedDirective} from './directives/highlighted.directive';
 
 @Component({
   selector: 'app-root',
