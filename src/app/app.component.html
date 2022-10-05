@@ -1,27 +1,26 @@
 <div class="top-menu">
 
-    <img class="logo"
-         src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
+  <img class="logo"
+       src="https://angular-academy.s3.amazonaws.com/main-logo/main-page-logo-small-hat.png">
 
 </div>
 
+<div>
 
-<div class="courses" #container *ngIf="courses[0] as course">
+  <div class="courses">
 
-  <ng-template #blankImage let-courseDescription="description">
-    <p class="warn">{{courseDescription}} has no image yet.</p>
-    <img src="assets/empty-image.png" alt="No image.">
-  </ng-template>
+    <course-card *ngFor="let course of courses"
+                 [course]="course">
 
-    <course-card (coursesSelected)="OnCourseSelected($event)" [course]="course" [noImageTpl]="blankImage">
+      <course-image [src]="course.iconUrl"></course-image>
 
-        <course-image [imageUrl]="course.iconUrl"></course-image>
-
-        <div class="course-description">
-            {{course.longDescription}}
-        </div>
     </course-card>
 
+  </div>
+
+
 </div>
+
+
 
 
