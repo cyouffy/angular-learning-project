@@ -9,7 +9,7 @@
 
   <div class="courses">
 
-    <course-card *ngFor="let course of courses"
+    <course-card *ngFor="let course of (courses$ | async)"
                  [course]="course">
 
       <course-image [src]="course.iconUrl"></course-image>
