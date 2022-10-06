@@ -3,7 +3,9 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Course} from '../model/course';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CoursesService {
 
   constructor( private http: HttpClient) { }
