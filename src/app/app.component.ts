@@ -27,6 +27,13 @@ export class AppComponent implements OnInit {
   ngOnInit() {
   }
 
+  editCourse() {
+    const course = this.courses[0];
+    const newCourse = {...course};
+    newCourse.description = 'New Value!'
+    this.courses[0] = newCourse;
+  }
+
   save(course: Course) {
     this.coursesService.saveCourse(course)
       .subscribe(
