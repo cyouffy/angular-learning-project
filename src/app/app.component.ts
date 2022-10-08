@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Inject, OnChanges, OnInit} from '@angular/core';
 import {COURSES} from '../db-data';
 import {Course} from './model/course';
-import {CoursesService} from './services/courses.service';
+import {CoursesService} from './courses/courses.service';
 import {AppConfig, CONFIG_TOKEN} from './config';
 import {Observable} from 'rxjs';
 
