@@ -17,7 +17,7 @@ import {APP_CONFIG, AppConfig, CONFIG_TOKEN} from './config';
 })
 export class AppComponent implements OnInit {
 
-  courses$: Observable<Course[]>;
+  courses = COURSES;
 
   constructor(private coursesService: CoursesService,
               @Inject(CONFIG_TOKEN)private conf: AppConfig) {
@@ -25,9 +25,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.courses$ = this.coursesService.loadCourses();
-
-    console.log(this.conf);
   }
 
   save(course: Course) {

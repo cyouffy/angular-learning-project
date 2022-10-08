@@ -39,6 +39,9 @@ export class CourseCardComponent implements OnInit {
 
     }
 
+    onTitleChange(newTitle:string) {
+      this.course.description = newTitle;
+    }
 
     onSaveClicked(description:string) {
 
