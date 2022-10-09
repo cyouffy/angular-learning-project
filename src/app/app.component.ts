@@ -13,7 +13,8 @@ import {Observable} from 'rxjs';
 })
 export class AppComponent implements OnInit, DoCheck {
 
-  courses: Course[];
+  courses = COURSES;
+  coursesTotal = this.courses.length;
   loaded = false;
 
   constructor(private coursesService: CoursesService,
@@ -29,12 +30,12 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    this.coursesService.loadCourses().subscribe(
-      courses => {
-        this.courses = courses;
-        this.loaded = true;
-      }
-    );
+    // this.coursesService.loadCourses().subscribe(
+    //   courses => {
+    //     this.courses = courses;
+    //     this.loaded = true;
+    //   }
+    // );
   }
 
   editCourse() {
