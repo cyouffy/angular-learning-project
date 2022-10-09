@@ -1,9 +1,11 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Inject, OnChanges, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, DoCheck, Inject, Injector, OnChanges, OnInit} from '@angular/core';
 import {COURSES} from '../db-data';
 import {Course} from './model/course';
 import {CoursesService} from './courses/courses.service';
 import {AppConfig, CONFIG_TOKEN} from './config';
 import {Observable} from 'rxjs';
+import {createCustomElement} from '@angular/elements';
+import {CourseTitleComponent} from './course-title/course-title.component';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +21,8 @@ export class AppComponent implements OnInit, DoCheck {
 
   constructor(private coursesService: CoursesService,
               @Inject(CONFIG_TOKEN)private conf: AppConfig,
-              private cd: ChangeDetectorRef) {
+              private cd: ChangeDetectorRef,
+              private injector: Injector) {
 
   }
 
@@ -30,6 +33,10 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
+
+    const htmlElement = createCustomElement(CourseTitleComponent, {"injector": this.injector});
+    customElements.define('course-title', htmlElement);
+
     // this.coursesService.loadCourses().subscribe(
     //   courses => {
     //     this.courses = courses;

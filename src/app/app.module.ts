@@ -5,10 +5,12 @@ import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {CoursesModule} from './courses/courses.module';
+import { CourseTitleComponent } from './course-title/course-title.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CourseTitleComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +19,11 @@ import {CoursesModule} from './courses/courses.module';
     CoursesModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    CourseTitleComponent
+  ],
+  entryComponents: [CourseTitleComponent]
 })
 export class AppModule {
 }
